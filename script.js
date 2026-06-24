@@ -13,7 +13,7 @@ const noBtn = document.getElementById('no-btn');
 const music = document.getElementById('bg-music');
 
 // Music setup
-music.muted = true;
+
 music.volume = 0.3;
 
 music.play().then(() => {
