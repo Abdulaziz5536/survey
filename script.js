@@ -77,12 +77,12 @@ function showTeaseMessage(msg) {
     toast._timer = setTimeout(() => toast.classList.remove('show'), 2500)
 }
 
-enableRunaway();
-runawayEnabled = true;
+
 
 function handleNoClick() {
-
-      runAway();
+ enableRunaway();
+runawayEnabled = true;
+      
       
 };
     
