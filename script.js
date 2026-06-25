@@ -57,6 +57,14 @@ function showTeaseMessage(msg) {
 
 // Move No button to a random place
 function runAway() {
+    if (noBtn.style.position !== 'fixed') {
+        const rect = noBtn.getBoundingClientRect();
+
+        noBtn.style.position = 'fixed';
+        noBtn.style.left = `${rect.left}px`;
+        noBtn.style.top = `${rect.top}px`;
+    }
+
     const margin = 20;
 
     const btnW = noBtn.offsetWidth;
@@ -65,13 +73,8 @@ function runAway() {
     const maxX = window.innerWidth - btnW - margin;
     const maxY = window.innerHeight - btnH - margin;
 
-    const randomX = Math.random() * maxX;
-    const randomY = Math.random() * maxY;
-
-    noBtn.style.position = 'fixed';
-    noBtn.style.left = `${randomX}px`;
-    noBtn.style.top = `${randomY}px`;
-    noBtn.style.zIndex = '100';
+    noBtn.style.left = `${Math.random() * maxX}px`;
+    noBtn.style.top = `${Math.random() * maxY}px`;
 }
 
 // Make button flee when cursor gets close
@@ -96,11 +99,5 @@ function enableRunaway() {
 }
 
 window.addEventListener('load', () => {
-    const rect = noBtn.getBoundingClientRect();
-
-    noBtn.style.position = 'fixed';
-    noBtn.style.left = `${rect.left}px`;
-    noBtn.style.top = `${rect.top}px`;
-
     enableRunaway();
 });
